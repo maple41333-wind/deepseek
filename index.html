@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Claude Code 接入 DeepSeek 教程</title>
+    <meta
+      name="description"
+      content="Claude Code 安装与 DeepSeek API 接入教程，覆盖依赖安装、环境变量和配置文件。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="页面导航">
+        <a class="brand" href="#top">Claude Code + DeepSeek</a>
+        <div class="navlinks">
+          <a href="#prepare">准备</a>
+          <a href="#install">安装</a>
+          <a href="#deepseek-key">API Key</a>
+          <a href="#configure">配置</a>
+          <a href="#daily-use">使用</a>
+        </div>
+      </nav>
+
+      <section id="top" class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Windows 教程</p>
+          <h1>Claude Code × DeepSeek</h1>
+          <p class="lead">安装、配置、启动，一页照做。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#prepare">开始</a>
+            <a class="button secondary" href="#configure">看配置</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-hidden="true">
+          <div class="terminal-top">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="terminal-body">
+            <p><b>C:\project&gt;</b> winget install Anthropic.ClaudeCode</p>
+            <p><b>C:\project&gt;</b> notepad "%USERPROFILE%\.claude\settings.json"</p>
+            <p><b>C:\project&gt;</b> claude</p>
+          </div>
+          <div class="hero-steps">
+            <span>Git</span>
+            <span>Claude Code</span>
+            <span>DeepSeek API</span>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <aside class="toc" aria-label="目录">
+        <a href="#prepare">安装依赖</a>
+        <a href="#install">安装 Claude Code</a>
+        <a href="#deepseek-key">DeepSeek Key</a>
+        <a href="#configure">接入 DeepSeek</a>
+        <a href="#daily-use">日常使用</a>
+      </aside>
+
+      <article class="guide">
+        <section id="prepare" class="section">
+          <h2>一、安装依赖</h2>
+          <h3>1. 打开命令提示符</h3>
+          <ol class="steps">
+            <li>按住键盘上的 <kbd>Win</kbd> 键，再按 <kbd>R</kbd> 键。</li>
+            <li>在弹出的“运行”窗口里输入 <code>cmd</code>。</li>
+            <li>按 <kbd>Enter</kbd> 键。</li>
+          </ol>
+
+          <h3>2. 安装 Git for Windows</h3>
+          <ol class="steps">
+            <li>复制下面这行命令。</li>
+            <li>在命令提示符窗口里点击右键粘贴。</li>
+            <li>按 <kbd>Enter</kbd> 键。</li>
+          </ol>
+          <div class="command-block">
+            <div class="command-title">命令提示符</div>
+            <button class="copy" data-copy='winget install --id Git.Git -e --source winget'>复制</button>
+            <pre><code>winget install --id Git.Git -e --source winget</code></pre>
+          </div>
+          <ol class="steps">
+            <li>如果窗口提示是否同意，输入 <code>Y</code>。</li>
+            <li>按 <kbd>Enter</kbd> 键。</li>
+            <li>等待安装完成。</li>
+            <li>关闭命令提示符窗口。</li>
+            <li>再次按 <kbd>Win</kbd> + <kbd>R</kbd>，输入 <code>cmd</code>，按 <kbd>Enter</kbd>。</li>
+            <li>复制下面这行命令，粘贴到窗口里，按 <kbd>Enter</kbd>。</li>
+          </ol>
+          <div class="command-block">
+            <button class="copy" data-copy="git --version">复制</button>
+            <pre><code>git --version</code></pre>
+          </div>
+          <p>看到 <code>git version</code> 开头的版本号，就进入下一步。</p>
+        </section>
+
+        <section id="install" class="section">
+          <h2>二、安装 Claude Code CLI</h2>
+          <ol class="steps">
+            <li>保持命令提示符窗口打开。</li>
+            <li>复制下面这行命令。</li>
+            <li>在命令提示符窗口里点击右键粘贴。</li>
+            <li>按 <kbd>Enter</kbd> 键。</li>
+          </ol>
+          <div class="command-block">
+            <div class="command-title">命令提示符</div>
+            <button class="copy" data-copy="winget install Anthropic.ClaudeCode">复制</button>
+            <pre><code>winget install Anthropic.ClaudeCode</code></pre>
+          </div>
+          <ol class="steps">
+            <li>如果窗口提示是否同意，输入 <code>Y</code>。</li>
+            <li>按 <kbd>Enter</kbd> 键。</li>
+            <li>等待安装完成。</li>
+            <li>关闭命令提示符窗口。</li>
+            <li>再次按 <kbd>Win</kbd> + <kbd>R</kbd>，输入 <code>cmd</code>，按 <kbd>Enter</kbd>。</li>
+            <li>复制下面这行命令，粘贴到窗口里，按 <kbd>Enter</kbd>。</li>
+          </ol>
+          <div class="command-block">
+            <button class="copy" data-copy="claude --version">复制</button>
+            <pre><code>claude --version</code></pre>
+          </div>
+          <p>看到 Claude Code 的版本号，就进入下一步。</p>
+        </section>
+
+        <section id="deepseek-key" class="section">
+          <h2>三、获取 DeepSeek API Key</h2>
+          <ol class="steps">
+            <li>打开浏览器。</li>
+            <li>点击地址栏。</li>
+            <li>输入 <code>https://platform.deepseek.com/</code>。</li>
+            <li>按 <kbd>Enter</kbd> 键。</li>
+            <li>登录 DeepSeek 账号；没有账号就按页面提示注册。</li>
+            <li>进入 API Keys 页面。</li>
+            <li>点击创建 API Key 的按钮。</li>
+            <li>复制新生成的 API Key。</li>
+            <li>先把它粘贴到本机安全位置，后面配置文件要用。</li>
+          </ol>
+        </section>
+
+        <section id="configure" class="section">
+          <h2>四、把 Claude Code 接到 DeepSeek</h2>
+          <h3 id="copy-config">写入 Claude Code 配置文件</h3>
+          <ol class="steps">
+            <li>按住 <kbd>Win</kbd> 键，再按 <kbd>R</kbd> 键。</li>
+            <li>输入 <code>cmd</code>。</li>
+            <li>按 <kbd>Enter</kbd> 键。</li>
+            <li>复制下面这行命令，粘贴到窗口里，按 <kbd>Enter</kbd>。</li>
+          </ol>
+          <div class="command-block">
+            <button class="copy" data-copy='mkdir "%USERPROFILE%\.claude"'>复制</button>
+            <pre><code>mkdir "%USERPROFILE%\.claude"</code></pre>
+          </div>
+          <ol class="steps">
+            <li>复制下面这行命令，粘贴到窗口里，按 <kbd>Enter</kbd>。</li>
+            <li>系统会打开记事本。</li>
+          </ol>
+          <div class="command-block">
+            <button class="copy" data-copy='notepad "%USERPROFILE%\.claude\settings.json"'>复制</button>
+            <pre><code>notepad "%USERPROFILE%\.claude\settings.json"</code></pre>
+          </div>
+          <ol class="steps">
+            <li>如果记事本提示文件不存在，点击“是”。</li>
+            <li>复制下面整段配置。</li>
+            <li>粘贴到记事本里。</li>
+            <li>把 <code>sk-替换成你的DeepSeekKey</code> 改成你自己的 API Key。</li>
+            <li>按 <kbd>Ctrl</kbd> + <kbd>S</kbd> 保存。</li>
+            <li>关闭记事本。</li>
+          </ol>
+          <div class="command-block">
+            <button class="copy" data-copy='{&#10;  "env": {&#10;    "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",&#10;    "ANTHROPIC_AUTH_TOKEN": "sk-替换成你的DeepSeekKey",&#10;    "ANTHROPIC_MODEL": "deepseek-v4-pro[1m]",&#10;    "ANTHROPIC_DEFAULT_OPUS_MODEL": "deepseek-v4-pro[1m]",&#10;    "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek-v4-pro[1m]",&#10;    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-v4-flash",&#10;    "CLAUDE_CODE_SUBAGENT_MODEL": "deepseek-v4-flash",&#10;    "CLAUDE_CODE_EFFORT_LEVEL": "max"&#10;  }&#10;}'>复制</button>
+            <pre><code>{
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
+    "ANTHROPIC_AUTH_TOKEN": "sk-替换成你的DeepSeekKey",
+    "ANTHROPIC_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-v4-flash",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "deepseek-v4-flash",
+    "CLAUDE_CODE_EFFORT_LEVEL": "max"
+  }
+}</code></pre>
+          </div>
+        </section>
+
+        <section id="daily-use" class="section">
+          <h2>五、日常使用方式</h2>
+          <ol class="steps">
+            <li>进入对应的项目文件夹。</li>
+            <li>在文件夹空白处点击鼠标右键。</li>
+            <li>点击“在终端中打开”。</li>
+            <li>在打开的终端窗口里输入 <code>claude</code>。</li>
+            <li>按 <kbd>Enter</kbd> 键。</li>
+            <li>看到 Claude Code 启动后，输入你要它做的事。</li>
+          </ol>
+        </section>
+
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>建议把这页作为安装现场的操作手册：照顺序做，复制命令前先替换自己的 API Key。</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
