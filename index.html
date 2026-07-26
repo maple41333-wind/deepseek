@@ -30,7 +30,6 @@
           <p class="lead">安装、配置、启动，一页照做。</p>
           <div class="hero-actions">
             <a class="button primary" href="#prepare">开始</a>
-            <a class="button secondary" href="#configure">看配置</a>
           </div>
         </div>
         <div class="hero-card" aria-hidden="true">
@@ -100,6 +99,40 @@
 
         <section id="install" class="section">
           <h2>二、安装 Claude Code CLI</h2>
+
+          <h3>1. 安装 Node.js</h3>
+          <p>Claude Code 通过 npm 安装，需要先装好 Node.js。</p>
+          <ol class="steps">
+            <li>保持命令提示符窗口打开。</li>
+            <li>复制下面这行命令。</li>
+            <li>在命令提示符窗口里点击右键粘贴。</li>
+            <li>按 <kbd>Enter</kbd> 键。</li>
+          </ol>
+          <div class="command-block">
+            <div class="command-title">命令提示符</div>
+            <button class="copy" data-copy="winget install --id OpenJS.NodeJS.LTS -e --source winget">复制</button>
+            <pre><code>winget install --id OpenJS.NodeJS.LTS -e --source winget</code></pre>
+          </div>
+          <ol class="steps">
+            <li>如果窗口提示是否同意，输入 <code>Y</code>。</li>
+            <li>按 <kbd>Enter</kbd> 键。</li>
+            <li>等待安装完成。</li>
+            <li>关闭命令提示符窗口。</li>
+            <li>再次按 <kbd>Win</kbd> + <kbd>R</kbd>，输入 <code>cmd</code>，按 <kbd>Enter</kbd>。</li>
+            <li>复制下面这行命令，粘贴到窗口里，按 <kbd>Enter</kbd>。</li>
+          </ol>
+          <div class="command-block">
+            <button class="copy" data-copy="node --version">复制</button>
+            <pre><code>node --version</code></pre>
+          </div>
+          <p>看到 <code>v</code> 开头的版本号，就说明 Node.js 装好了。npm 会随 Node.js 一起装上，可以顺便验证一下：</p>
+          <div class="command-block">
+            <button class="copy" data-copy="npm --version">复制</button>
+            <pre><code>npm --version</code></pre>
+          </div>
+          <p>看到版本号就继续。</p>
+
+          <h3>2. 安装 Claude Code</h3>
           <ol class="steps">
             <li>保持命令提示符窗口打开。</li>
             <li>复制下面这行命令。</li>
@@ -112,11 +145,7 @@
             <pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
           </div>
           <ol class="steps">
-            <li>如果窗口提示是否同意，输入 <code>Y</code>。</li>
-            <li>按 <kbd>Enter</kbd> 键。</li>
-            <li>等待安装完成。</li>
-            <li>关闭命令提示符窗口。</li>
-            <li>再次按 <kbd>Win</kbd> + <kbd>R</kbd>，输入 <code>cmd</code>，按 <kbd>Enter</kbd>。</li>
+            <li>等待安装完成（下载和解压需要一些时间）。</li>
             <li>复制下面这行命令，粘贴到窗口里，按 <kbd>Enter</kbd>。</li>
           </ol>
           <div class="command-block">
