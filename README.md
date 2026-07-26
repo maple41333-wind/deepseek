@@ -7,7 +7,7 @@
 直接用浏览器打开：
 
 ```text
-https://maple41333-wind.github.io/claude-code-deepseek-tutorial/
+https://maple41333-wind.github.io/deepseek/
 ```
 
 ## 关键文件
