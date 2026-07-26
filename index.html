@@ -218,16 +218,32 @@
 
         <section id="daily-use" class="section">
           <h2>五、日常使用方式</h2>
+
+          <h3>日常启动</h3>
           <ol class="steps">
             <li>进入对应的项目文件夹。</li>
             <li>在文件夹空白处点击鼠标右键。</li>
-            <li>点击“在终端中打开”。</li>
+            <li>点击"在终端中打开"。</li>
             <li>在打开的终端窗口里输入 <code>claude</code>。</li>
             <li>按 <kbd>Enter</kbd> 键。</li>
             <li>看到 Claude Code 启动后，输入你要它做的事。</li>
           </ol>
-        </section>
 
+          <h3>常见问题：提示"禁止运行脚本"</h3>
+          <p>如果输入 <code>claude</code> 后报错"无法加载文件"或 <code>running scripts is disabled</code>，说明系统默认禁止运行脚本。执行下面这行命令即可解除（只需执行一次）：</p>
+          <ol class="steps">
+            <li>保持终端窗口打开。</li>
+            <li>复制下面这行命令。</li>
+            <li>在终端窗口里点击右键粘贴。</li>
+            <li>按 <kbd>Enter</kbd> 键。</li>
+          </ol>
+          <div class="command-block">
+            <div class="command-title">命令提示符</div>
+            <button class="copy" data-copy="Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned">复制</button>
+            <pre><code>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned</code></pre>
+          </div>
+          <p>执行后即可重新输入 <code>claude</code> 尝试启动。</p>
+        </section>
       </article>
     </main>
 
